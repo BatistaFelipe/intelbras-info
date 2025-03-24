@@ -2,6 +2,7 @@
 
 import requests
 from datetime import datetime
+from config import USER, PASSWORD
 
 # Intelbras API https://intelbras-caco-api.intelbras.com.br/
 
@@ -32,9 +33,7 @@ def setCurrentTime(host, digest_auth):
 		raise Exception("ERROR - During Set Current Time")
 
 def main():
-	user = 'admin'
-	pwd = '***REMOVED***'
-	digest_auth = requests.auth.HTTPDigestAuth(user, pwd)
+	digest_auth = requests.auth.HTTPDigestAuth(USER, PASSWORD)
 
 	host = input("<IP:porta>: ").strip().lower()
 
