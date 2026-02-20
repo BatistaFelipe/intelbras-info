@@ -36,12 +36,39 @@ USER="USUÁRIO_DE_ACESSO"
 PASSWORD="SENHA_DE_ACESSO"
 ```
 
-## Execução
+## Build
+
+Para criar o executável utilizando `pyinstaller`:
+
+```bash
+pyinstaller --onefile --add-data "config.py;." --collect-all requests intelbras_info.py
+```
+
+### Instalação
+
+Os arquivos devem estar organizados da seguinte forma:
+
+```text
+├── intelbras-info/
+│   └── intelbras_info.exe
+├── Install.bat
+└── install.ps1
+```
+
+Após organizar os arquivos rode o script `Install.bat`.
 
 ### Sintaxe Básica
 
+Executar com **Python** direto do código fonte:
+
 ```bash
 python3 intelbras_info.py -H [HOST:PORTA] [OPÇÕES]
+```
+
+Executar após a instalação com o `Install.bat`
+
+```bash
+intelbras_info -H [HOST:PORTA] [OPÇÕES]
 ```
 
 ### Comandos Disponíveis
