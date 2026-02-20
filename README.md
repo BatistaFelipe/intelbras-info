@@ -1,6 +1,13 @@
-# Intelbras Info
+# Intelbras Info CLI
 
-Aplicação de terminal para verificar informações sobre dispositivos Intelbras via API.
+Ferramenta de linha de comando para buscar informações e gerenciar dispositivos (interfones) Intelbras via API.
+
+## Funcionalidades
+
+- Busca de informações gerais do sistema.
+- Consulta de configurações SIP.
+- Sincronização e leitura de data/hora do dispositivo.
+- Reinicialização remota (Reboot).
 
 ## Configuração
 
@@ -8,17 +15,17 @@ Aplicação de terminal para verificar informações sobre dispositivos Intelbra
 
 1. Python3:
 
-    > [Using Python on Unix platforms](https://docs.python.org/3/using/unix.html)
-    >
-    > [Using Python on Windows](https://docs.python.org/3/using/windows.html)
-    >
-    > [Installing Python Modules](https://docs.python.org/3/installing/index.html)
+   > [Using Python on Unix platforms](https://docs.python.org/3/using/unix.html)
+   >
+   > [Using Python on Windows](https://docs.python.org/3/using/windows.html)
+   >
+   > [Installing Python Modules](https://docs.python.org/3/installing/index.html)
 
 2. Abra o terminal dentro da pasta do projeto e execute o comando abaixo para instalar as bibliotecas necessárias:
 
-    ```
-    python3 -m pip install -r requirements.txt
-    ```
+   ```
+   python3 -m pip install -r requirements.txt
+   ```
 
 ### Criar o arquivo de configuração
 
@@ -29,29 +36,22 @@ USER="USUÁRIO_DE_ACESSO"
 PASSWORD="SENHA_DE_ACESSO"
 ```
 
-## Execução 
+## Execução
 
-Abra o terminal na pasta do projeto e execute o programa com o comando: 
+### Sintaxe Básica
 
+```bash
+python3 intelbras_info.py -H [HOST:PORTA] [OPÇÕES]
 ```
-python3 intelbrasInfo.py
-```
 
--> Saída: `<IP:porta>:`
+### Comandos Disponíveis
 
-Digite o endereço do dispositivo usando o formato **IP:PORTA**, por exemplo:
-- 192.168.2.104:8085
-- meuexemplo.com.br:8086
-
-### Menu 
-
-Será exibido o menu conforme descrito abaixo. Digite apenas o número da opção desejada.
-
-| Opção | Nome | Descrição |
-|---|------|-----------|
-| 1 | Informações gerais | Informações de modelo, serial, etc. |
-| 2 | Informações sip | Informações sobre sip, usuário, porta, ip, etc. |
-| 3 | Data e hora | Mostra a informação de data e hora do dispositivo. |
-| 4 | Ajustar data e hora | Salva nova data e hora usando como base a do computador. |
-| 5 | Reiniciar | Reiniciar o dispositivo. |
-| 0 | Sair | Finalizar a aplicação. |
+| Opção                | Descrição                                                         |
+| -------------------- | ----------------------------------------------------------------- |
+| `-H, --host`         | **Obrigatório:** Endereço do interfone (ex: `192.168.1.100:8085`) |
+| `-i, --info`         | Exibe informações gerais do sistema                               |
+| `-s, --sip-info`     | Exibe as configurações de SIP                                     |
+| `-d, --get-datetime` | Retorna a data e hora atual do dispositivo                        |
+| `-D, --set-datetime` | Ajusta a data e hora do dispositivo para o horário atual          |
+| `-r, --reboot`       | Reinicia o dispositivo remotamente                                |
+| `-h, --help`         | Mostra a mensagem de ajuda                                        |
