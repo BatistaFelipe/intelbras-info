@@ -3,7 +3,7 @@
 *.jpeg
 *.png
 *.csv
-config.py
+!assets/icon.png
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -38,6 +38,8 @@ MANIFEST
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec
+!cli_app.spec
+!gui_app.spec
 
 # Installer logs
 pip-log.txt
